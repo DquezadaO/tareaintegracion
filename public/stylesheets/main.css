@@ -54,14 +54,6 @@
 .content {
   margin-bottom: 5vh;
 }
-.titles {
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-.sub-titles {
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
 .foto {
   height: 30vw;
   border-radius: 10vw;
