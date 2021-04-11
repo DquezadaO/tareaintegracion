@@ -20,13 +20,13 @@
 </div>
 
 <div class="container">
-  <h1><%-show%>: Temporada <%-season%></h1>
+  <h1>Resultado de la búsqueda: "<%-name%>"</h1>
   <hr>
   <div class="row titles">
     <div class="col-md-12">
       <ul style="list-style-type:none;">
-        <% episodes.forEach(x=> {%>
-        <li><h2><a href="/episodes?index=<%- x.episode_id %>">Episodio <%- x.episode %>: <%- x.title %></a></h2></li>
+        <% results.forEach(x=> {%>
+        <li><h2><a href="/characters?name=<%- x.name %>"><%- x.name %></a></h2></li>
         <% }) %>
       </ul>
     </div>
