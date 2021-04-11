@@ -51,28 +51,17 @@ express()
   	};
   })
   .get('/search', (req, res) => {
-  	let offset = req.query.offset ? req.query.offset : 0;
+  	let offset = req.query.page ? req.query.page : 1;
   	const link = 'https://tarea-1-breaking-bad.herokuapp.com/api/characters?offset='
   	let name = req.query.name;
   	let results = [];
-  	let raw = [];
-  	axios(link + offset + '&name=' + name).then(x => raw = x.data);
+  	axios(link + (offset-1)*10 + '&name=' + name).then(x => results = x.data);
   	setTimeout( x => {
-	  	if (raw.length < 10) {
-	  		results = raw;
-	  	} else {
-	  		while (raw.length >= 10) {
-	  			results.concat(raw);
-	  			raw = [];
-	  			offset += 10;
-	  			axios(link + offset + '&name=' + name).then(x => raw = x.data);
-	  		}
-	  		results.concat(raw);
-	  	}
 	  	res.render('pages/results', {
 	  		name: name,
-	  		results: results
-	})}, 1000);
+	  		results: results,
+        page: offset,
+	  })}, 1000);
   })
   .get('/characters', (req, res) => {
   	let name = req.query.name;

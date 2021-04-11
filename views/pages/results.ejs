@@ -20,7 +20,7 @@
 </div>
 
 <div class="container content">
-  <h1>Resultado de la búsqueda: "<%-name%>"</h1>
+  <h1>Resultado de la búsqueda: "<%- name %>" - Página <%- page %></h1>
   <hr>
   <div class="row titles">
     <div class="col-md-12">
@@ -32,6 +32,11 @@
     </div>
   </div>
 </div>
+<% if (results.length == 10) {%>
+<h3>
+  <a href="/search?name=<%- name %>&page=2">Siguiente</a>
+</h3>
+<% } %>
 
 
 </body>
